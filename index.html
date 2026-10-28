@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="蜀韵·成都文化旅游宣传网站，探索景点、美食、文化与旅行攻略。">
+  <title>蜀韵·成都 | 首页</title>
+  <style>
+    :root {
+      --gold: #c99a45;
+      --gold-light: #ead9b5;
+      --ink: #292a27;
+      --muted: #73736d;
+      --paper: #fbf8f1;
+      --white: #fff;
+      --content-width: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(var(--content-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: relative;
+      z-index: 1;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .nav-wrap {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold-light);
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 17px;
+    }
+
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 32px;
+      font-size: 14px;
+    }
+
+    .main-nav a {
+      padding-block: 8px;
+      transition: color 160ms ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      color: var(--gold-light);
+    }
+
+    .hero {
+      display: flex;
+      min-height: 490px;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgb(27 28 25 / 76%) 0%, rgb(27 28 25 / 48%) 48%, rgb(27 28 25 / 8%) 100%),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=85") center 48% / cover;
+      color: var(--white);
+    }
+
+    .hero-content {
+      max-width: 650px;
+      padding-block: 78px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 4px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(38px, 5vw, 62px);
+      font-weight: 600;
+      letter-spacing: 5px;
+      line-height: 1.25;
+    }
+
+    .hero-copy {
+      max-width: 490px;
+      margin: 20px 0 30px;
+      color: rgb(255 255 255 / 88%);
+      font-size: 16px;
+    }
+
+    .hero-link {
+      display: inline-block;
+      padding: 11px 26px;
+      border: 1px solid var(--gold-light);
+      color: var(--white);
+      font-size: 14px;
+      transition: background-color 160ms ease, color 160ms ease;
+    }
+
+    .hero-link:hover,
+    .hero-link:focus-visible {
+      background: var(--gold-light);
+      color: var(--ink);
+    }
+
+    .section {
+      padding-block: 76px;
+    }
+
+    .section-heading {
+      margin-bottom: 34px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      margin: 0 0 4px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 31px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .section-heading p:last-child {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .attraction-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .attraction-card {
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 8px 24px rgb(41 42 39 / 7%);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .attraction-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgb(41 42 39 / 12%);
+    }
+
+    .attraction-card img {
+      height: 190px;
+    }
+
+    .card-copy {
+      padding: 18px 18px 20px;
+    }
+
+    .card-copy h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .card-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .food-section {
+      background: #f0eadc;
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .food-card {
+      position: relative;
+      min-height: 245px;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .food-card img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      opacity: 0.77;
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    .food-card:hover img {
+      transform: scale(1.04);
+      opacity: 0.9;
+    }
+
+    .food-name {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+      padding: 34px 18px 16px;
+      background: linear-gradient(transparent, rgb(20 20 18 / 78%));
+      color: var(--white);
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+
+    .food-name span {
+      display: block;
+      color: var(--gold-light);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .site-footer {
+      padding: 25px 20px;
+      background: var(--ink);
+      color: rgb(255 255 255 / 72%);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap {
+        gap: 18px;
+      }
+
+      .main-nav {
+        gap: 18px;
+      }
+
+      .attraction-grid,
+      .food-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 32px, var(--content-width));
+      }
+
+      .nav-wrap {
+        min-height: 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding-block: 15px;
+      }
+
+      .main-nav {
+        justify-content: flex-start;
+        gap: 8px 20px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 420px;
+        background-position: 58% center;
+      }
+
+      .hero-content {
+        padding-block: 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: 2px;
+      }
+
+      .hero-copy {
+        font-size: 14px;
+      }
+
+      .section {
+        padding-block: 55px;
+      }
+
+      .section-heading h2 {
+        font-size: 26px;
+      }
+
+      .attraction-grid,
+      .food-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .attraction-card img {
+        height: 220px;
+      }
+
+      .food-card {
+        min-height: 230px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 网站页头：品牌标识与主导航 -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="蜀韵成都首页">
+        <span class="brand-logo" aria-hidden="true">蜀</span>
+        <span class="brand-name">蜀韵·成都</span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a class="active" href="index.html">首页</a>
+        <a href="food.html">美食</a>
+        <a href="sights.html">景点</a>
+        <a href="culture.html">文化</a>
+        <a href="travel.html">攻略</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 全屏轮播横幅：至少包含三张主题图片 -->
+    <section class="carousel" aria-label="成都旅游轮播图">
+      <div class="slides">
+        <article class="slide active">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=85" alt="烟雨山水间的成都慢生活">
+          <div class="slide-content"><p class="slide-kicker">LAND OF ABUNDANCE</p><h1>蜀韵天府</h1><p>青山入城，锦水流芳；在千年烟火里，遇见悠然成都。</p><a class="gold-button" href="sights.html">探索成都景致</a></div>
+        </article>
+        <article class="slide">
+          <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=2000&q=85" alt="成都大熊猫的自然生态">
+          <div class="slide-content"><p class="slide-kicker">NATURE · HARMONY</p><h1>熊猫家园</h1><p>绿意为伴，珍稀生灵安然栖息，感受人与自然的温柔相处。</p><a class="gold-button" href="sights.html">走近熊猫</a></div>
+        </article>
+        <article class="slide">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=2000&q=85" alt="成都特色美食和热闹烟火气">
+          <div class="slide-content"><p class="slide-kicker">FLAVOR · LIFE</p><h1>舌尖成都</h1><p>一碗面、一盅茶、一锅火锅，品味来自市井深处的鲜活滋味。</p><a class="gold-button" href="food.html">品味成都</a></div>
+        </article>
+      </div>
+      <button class="carousel-button prev" type="button" aria-label="上一张">‹</button>
+      <button class="carousel-button next" type="button" aria-label="下一张">›</button>
+      <div class="carousel-dots" aria-label="轮播页码"><button class="carousel-dot active" type="button" aria-label="第1张"></button><button class="carousel-dot" type="button" aria-label="第2张"></button><button class="carousel-dot" type="button" aria-label="第3张"></button></div>
+    </section>
+
+    <!-- 宣传视频区域 -->
+    <section class="section video-section" aria-labelledby="video-title">
+      <div class="container">
+        <header class="section-heading"><p class="section-kicker">A JOURNEY THROUGH CHENGDU</p><h2 id="video-title">镜头里的蓉城</h2><p>跟随画面，近看成都的古韵与新潮</p></header>
+        <div class="video-wrap"><video controls poster="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=85"><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">您的浏览器不支持视频播放。</video></div>
+        <p class="intro-copy">成都是一座把闲适写进日常的城市。锦江两岸风光灵秀，宽窄巷子保留着老城记忆，公园茶馆里，市民围坐品茶谈天。这里既有三星堆文化的神秘辉煌，也有都江堰千年延续的治水智慧；既能在熊猫基地邂逅憨态可掬的国宝，也能从火锅、串串到川剧变脸中感受巴蜀风情。白日漫游古街，夜晚临江赏灯，成都用包容与烟火气，让每一次相逢都慢慢成为回忆。</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 网站页尾：统一版权信息 -->
+  <footer class="site-footer">
+    <p>© 2026 蜀韵·成都文化旅游宣传网　|　慢游天府，遇见蓉城</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
